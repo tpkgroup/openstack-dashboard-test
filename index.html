@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenStack Lab Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">O</div>
+      <div>
+        <strong>OpenStack Lab</strong>
+        <span>Infrastructure</span>
+      </div>
+    </div>
+
+    <nav>
+      <p class="nav-title">MAIN</p>
+      <a class="nav-item active" href="#overview">⌂ <span>Overview</span></a>
+      <a class="nav-item" href="#instances">▣ <span>Instances</span></a>
+      <a class="nav-item" href="#networks">⌁ <span>Networks</span></a>
+      <a class="nav-item" href="#images">◫ <span>Images</span></a>
+
+      <p class="nav-title">INFRASTRUCTURE</p>
+      <a class="nav-item" href="#compute">▤ <span>Compute Nodes</span></a>
+      <a class="nav-item" href="#services">◉ <span>Services</span></a>
+      <a class="nav-item" href="#topology">◇ <span>Topology</span></a>
+
+      <p class="nav-title">SYSTEM</p>
+      <a class="nav-item" href="#logs">≡ <span>Activity Logs</span></a>
+      <a class="nav-item" href="#settings">⚙ <span>Settings</span></a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="connection-dot"></div>
+      <div>
+        <strong>Lab Cluster</strong>
+        <span>Connected</span>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <div class="breadcrumb">Infrastructure / Dashboard</div>
+        <h1>Cloud Overview</h1>
+      </div>
+      <div class="top-actions">
+        <span class="cluster-pill"><i></i> OVN Cluster Healthy</span>
+        <button class="icon-btn" title="Notifications">♢</button>
+        <div class="avatar">SV</div>
+      </div>
+    </header>
+
+    <section id="overview" class="content">
+      <div class="hero">
+        <div>
+          <span class="eyebrow">OPENSTACK LAB ENVIRONMENT</span>
+          <h2>Infrastructure at a glance</h2>
+          <p>Monitor compute, networking and virtual resources from one place.</p>
+        </div>
+        <div class="hero-meta">
+          <span>Region</span>
+          <strong>RegionOne</strong>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-top"><span>Instances</span><b class="stat-icon blue">▣</b></div>
+          <strong class="stat-value">12</strong>
+          <div class="stat-sub"><span class="up">↑ 2</span> this week</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-top"><span>vCPUs</span><b class="stat-icon purple">⌘</b></div>
+          <strong class="stat-value">24 / 48</strong>
+          <div class="progress"><span style="width:50%"></span></div>
+          <div class="stat-sub">50% allocated</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-top"><span>Memory</span><b class="stat-icon green">▥</b></div>
+          <strong class="stat-value">37 / 96 GB</strong>
+          <div class="progress green-progress"><span style="width:39%"></span></div>
+          <div class="stat-sub">39% allocated</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-top"><span>Storage</span><b class="stat-icon orange">◈</b></div>
+          <strong class="stat-value">284 GB</strong>
+          <div class="stat-sub"><span class="neutral">of 1.2 TB</span> used</div>
+        </div>
+      </div>
+
+      <div class="grid-two">
+        <section class="panel" id="compute">
+          <div class="panel-head">
+            <div><h3>Compute Nodes</h3><span>Resource utilization</span></div>
+            <button class="text-btn">View all →</button>
+          </div>
+          <div class="node-list">
+            <div class="node">
+              <div class="node-name"><span class="status"></span><div><strong>controller</strong><small>Management + API</small></div></div>
+              <div class="node-metric"><small>CPU</small><b>31%</b><div class="mini-progress"><span style="width:31%"></span></div></div>
+              <div class="node-metric"><small>RAM</small><b>42%</b><div class="mini-progress purple-bar"><span style="width:42%"></span></div></div>
+              <span class="node-state">Healthy</span>
+            </div>
+            <div class="node">
+              <div class="node-name"><span class="status"></span><div><strong>compute01</strong><small>OVS + KVM</small></div></div>
+              <div class="node-metric"><small>CPU</small><b>58%</b><div class="mini-progress"><span style="width:58%"></span></div></div>
+              <div class="node-metric"><small>RAM</small><b>61%</b><div class="mini-progress purple-bar"><span style="width:61%"></span></div></div>
+              <span class="node-state">Healthy</span>
+            </div>
+            <div class="node">
+              <div class="node-name"><span class="status"></span><div><strong>compute02</strong><small>OVS + KVM</small></div></div>
+              <div class="node-metric"><small>CPU</small><b>44%</b><div class="mini-progress"><span style="width:44%"></span></div></div>
+              <div class="node-metric"><small>RAM</small><b>35%</b><div class="mini-progress purple-bar"><span style="width:35%"></span></div></div>
+              <span class="node-state">Healthy</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" id="services">
+          <div class="panel-head">
+            <div><h3>OpenStack Services</h3><span>Service health</span></div>
+            <span class="live">● LIVE</span>
+          </div>
+          <div class="service-grid">
+            <div class="service"><span class="service-dot"></span><div><strong>Nova</strong><small>Compute</small></div><b>OK</b></div>
+            <div class="service"><span class="service-dot"></span><div><strong>Neutron</strong><small>Networking</small></div><b>OK</b></div>
+            <div class="service"><span class="service-dot"></span><div><strong>Glance</strong><small>Images</small></div><b>OK</b></div>
+            <div class="service"><span class="service-dot"></span><div><strong>Keystone</strong><small>Identity</small></div><b>OK</b></div>
+            <div class="service"><span class="service-dot"></span><div><strong>Placement</strong><small>Resources</small></div><b>OK</b></div>
+            <div class="service"><span class="service-dot"></span><div><strong>OVN</strong><small>Networking backend</small></div><b>OK</b></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel" id="instances">
+        <div class="panel-head">
+          <div><h3>Recent Instances</h3><span>Latest virtual machines</span></div>
+          <button class="primary-btn" onclick="alert('Demo action: create instance')">+ Create Instance</button>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>INSTANCE</th><th>STATUS</th><th>FLAVOR</th><th>NETWORK</th><th>COMPUTE NODE</th><th>IP ADDRESS</th></tr></thead>
+            <tbody>
+              <tr><td><strong>web-server-01</strong><small>Ubuntu 24.04</small></td><td><span class="badge running">Running</span></td><td>m1.small</td><td>private-net</td><td>compute01</td><td>10.0.0.21</td></tr>
+              <tr><td><strong>test-vm-02</strong><small>Ubuntu 24.04</small></td><td><span class="badge running">Running</span></td><td>m1.medium</td><td>private-net</td><td>compute02</td><td>10.0.0.22</td></tr>
+              <tr><td><strong>router-lab</strong><small>Cirros</small></td><td><span class="badge running">Running</span></td><td>m1.nano</td><td>mgmt-net</td><td>compute01</td><td>10.0.0.30</td></tr>
+              <tr><td><strong>demo-vm</strong><small>Ubuntu 22.04</small></td><td><span class="badge stopped">Stopped</span></td><td>m1.small</td><td>private-net</td><td>compute02</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="grid-two bottom-grid">
+        <section class="panel" id="networks">
+          <div class="panel-head"><div><h3>Networks</h3><span>Virtual networking</span></div><button class="text-btn">Manage →</button></div>
+          <div class="network-list">
+            <div><span class="network-icon">⌁</span><div><strong>private-net</strong><small>10.0.0.0/24</small></div><b>8 ports</b></div>
+            <div><span class="network-icon">⌁</span><div><strong>mgmt-net</strong><small>192.168.100.0/24</small></div><b>14 ports</b></div>
+            <div><span class="network-icon">⌁</span><div><strong>external</strong><small>203.0.113.0/24</small></div><b>6 ports</b></div>
+          </div>
+        </section>
+
+        <section class="panel" id="logs">
+          <div class="panel-head"><div><h3>Activity</h3><span>Recent events</span></div><button class="text-btn">All logs →</button></div>
+          <div class="activity">
+            <div><i class="event blue-event"></i><div><strong>Instance created</strong><p>web-server-01 was created on compute01</p><small>8 minutes ago</small></div></div>
+            <div><i class="event green-event"></i><div><strong>Network healthy</strong><p>OVN northbound connection is operational</p><small>21 minutes ago</small></div></div>
+            <div><i class="event purple-event"></i><div><strong>Image uploaded</strong><p>Ubuntu 24.04 image is ready</p><small>1 hour ago</small></div></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel topology-panel" id="topology">
+        <div class="panel-head"><div><h3>Lab Topology</h3><span>Logical architecture</span></div></div>
+        <div class="topology">
+          <div class="topo-node controller-node"><b>CONTROLLER</b><span>Keystone · Nova · Neutron · Glance</span></div>
+          <div class="topo-line"></div>
+          <div class="topo-node network-node"><b>NETWORK</b><span>OVN · OVS · Gateway</span></div>
+          <div class="topo-line"></div>
+          <div class="compute-stack">
+            <div class="topo-node"><b>COMPUTE 01</b><span>KVM · OVS · VM</span></div>
+            <div class="topo-node"><b>COMPUTE 02</b><span>KVM · OVS · VM</span></div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <footer>OpenStack Lab Dashboard <span>•</span> Demo UI <span>•</span> Static frontend</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
